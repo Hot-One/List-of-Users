@@ -26,8 +26,7 @@ func main() {
 		page      int
 
 	)
-	fmt.Printf("1. List of Users\n2. Search by Phone numbers\n3. Search by Names or Letter
-				\n4. Search by birthdays ")
+	fmt.Printf("1. List of Users\n2. Search by Phone numbers\n3. Search by Names or Letter\n4. Search by birthdays ")
 	fmt.Scan(&answer)
 	if answer == "1"{
 		fmt.Printf("Input Data limit: ")
@@ -67,7 +66,7 @@ func main() {
 			fmt.Println(user)
 		}
 	}else if answer == "4"{
-		var from, to string
+		var from, to int
 		fmt.Printf("Enter from: ")
 		fmt.Scan(&from)
 		fmt.Printf("Enter to: ")

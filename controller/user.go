@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"strconv"
 	"strings"
 	"log"
 
@@ -77,15 +78,29 @@ func FindPhoneNumbers(PhoneNumber string, users []*models.User) []*models.User{
 
 
 
-func SearchByDate(from, to string, users []*models.User) []*models.User{
-	var have_user = []*models.User{}
-	for _, user := range users{
-		if strings.Contains(user.Data, from){
-			have_user = append(have_user, user)
-		}
-		if strings.Contains(user.Data, to){
-			have_user = append(have_user, user)
+func SearchByDate(from, to int, users []*models.User) []*models.User{
+	var (
+		// fromToInt = strconv.Atoi(from)
+		// toToint = strconv.Atoi(to)
+		have_user = []*models.User{}
+	)
+	for year := from; year <= to; year++{
+		yearTostr := strconv.Itoa(year)
+		for _, user := range users{
+			if strings.Contains(user.Data, yearTostr){
+				have_user = append(have_user, user)
+			}
 		}
 	}
 	return have_user
+	// var have_user = []*models.User{}
+	// for _, user := range users{
+	// 	if strings.Contains(user.Data, from){
+	// 		have_user = append(have_user, user)
+	// 	}
+	// 	if strings.Contains(user.Data, to){
+	// 		have_user = append(have_user, user)
+	// 	}
+	// }
+	// return have_user
 }
