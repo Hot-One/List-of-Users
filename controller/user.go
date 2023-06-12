@@ -87,7 +87,7 @@ func SearchByDate(from, to int, users []*models.User) []*models.User{
 	for year := from; year <= to; year++{
 		yearTostr := strconv.Itoa(year)
 		for _, user := range users{
-			if strings.Contains(user.Data, yearTostr){
+			if strings.HasPrefix(user.Data, yearTostr){
 				have_user = append(have_user, user)
 			}
 		}
